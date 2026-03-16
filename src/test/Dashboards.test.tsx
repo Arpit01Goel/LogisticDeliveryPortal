@@ -3,10 +3,9 @@
  * Integration tests for all 6 role-specific dashboards.
  */
 import { describe, it, expect, beforeEach } from 'vitest';
-import { render, screen, fireEvent, act, within } from '@testing-library/react';
+import { render, screen, fireEvent, act } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { useEffect } from 'react';
-import type { ReactNode } from 'react';
 import { AppProvider, useApp, DEMO_USERS } from '../context/AppContext';
 import type { Role } from '../types';
 import OperationsPage from '../pages/OperationsPage';
