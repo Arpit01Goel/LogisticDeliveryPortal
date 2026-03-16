@@ -60,7 +60,11 @@ export default function Layout({ children, title }: LayoutProps) {
     const { state, dispatch } = useApp();
     const navigate = useNavigate();
     const location = useLocation();
-    const user = state.currentUser!;
+    const user = state.currentUser;
+
+    // Null guard: renders nothing while login hasn't completed yet (e.g. first render in tests)
+    if (!user) return null;
+
     const navItems = ROLE_NAV[user.role];
     const color = ROLE_COLOR[user.role];
     const initials = user.name.split(' ').map((n: string) => n[0]).join('').slice(0, 2);
